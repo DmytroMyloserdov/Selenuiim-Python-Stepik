@@ -5,22 +5,21 @@ import math
 def calc(x):
     return str(math.log(abs(12*math.sin(int(x)))))
 
-mainLink = "http://suninjuly.github.io/math.html"
+mainLink = "http://suninjuly.github.io/alert_accept.html"
 
 try:
     browser = webdriver.Chrome()
     browser.get(mainLink)
-    
+
+    button = browser.find_element_by_css_selector("button.btn")
+    button.click()
+
+    browser.switch_to.alert.accept()
+
     inputValue = browser.find_element_by_id("input_value").text
 
     x = browser.find_element_by_css_selector('input[type="text"]')
     x.send_keys(calc(inputValue))
-
-    checkBox = browser.find_element_by_css_selector('input[type="checkbox"]')
-    checkBox.click()
-
-    radio = browser.find_element_by_css_selector('input[type="radio"]#robotsRule')
-    radio.click()
 
     button = browser.find_element_by_css_selector("button.btn")
     button.click()
