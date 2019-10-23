@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 
 class BasePageObjectLocators():
     NO_ELEMENT_EXCEPTION = " is not presented"
+    BASKET_PAGE = (By.XPATH, "//*[text()='View basket']")
 
 class MainPageObjectLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
@@ -16,3 +17,8 @@ class ProductPageObjectLocators():
     BASKET_LINK = (By.CSS_SELECTOR, ".btn-add-to-basket")
     PRODUCT_NAME = (By.CSS_SELECTOR, ".product_main > h1")
     ADDED_PRODUCT = (By.CSS_SELECTOR, ".alertinner > strong")
+    SUCCESS_ALERT = (By.CSS_SELECTOR, ".alert-success")
+
+class BasketPageObjectLocators():
+    BASKET_ITEMS = (By.CSS_SELECTOR, ".basket_summary")
+    BASKET_EMPTY_NOTE = (By.XPATH, "//*[contains(text(),'Your basket is empty')]")
