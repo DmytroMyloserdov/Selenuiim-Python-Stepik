@@ -56,3 +56,11 @@ class BasePageObject():
         link = self.browser.find_element(*BasePageObjectLocators.BASKET_PAGE)
         link.click()
         return self.browser.current_url
+
+    def go_to_login_page(self):
+        link = self.browser.find_element(*BasePageObjectLocators.LOGIN_LINK)
+        link.click()
+        return self.browser.current_url
+
+    def should_be_authorized_user(self):
+        assert self.is_element_exists(*BasePageObjectLocators.USER_ICON), "User icon is not presented, probably unauthorised user"

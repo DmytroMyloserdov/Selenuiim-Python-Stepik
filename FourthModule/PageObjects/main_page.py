@@ -1,12 +1,7 @@
 from .base_page import BasePageObject
 from .login_page import LoginPageObject
-from .locators import MainPageObjectLocators
+from .locators import BasePageObjectLocators
 
-class MainPageObject(BasePageObject): 
-    def go_to_login_page(self):
-        link = self.browser.find_element(*MainPageObjectLocators.LOGIN_LINK)
-        link.click()
-        return LoginPageObject(browser=self.browser, url=self.browser.current_url)
-
+class MainPageObject(BasePageObject):
     def should_be_login_link(self):
-        assert self.is_element_exists(*MainPageObjectLocators.LOGIN_LINK), "Login link is not presented"
+        assert self.is_element_exists(*BasePageObjectLocators.LOGIN_LINK), "Login link is not presented"
